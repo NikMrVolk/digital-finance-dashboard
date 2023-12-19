@@ -9,7 +9,7 @@
     "coverage": "jest --coverage",
     "format": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore .",
     "format:fix": "prettier --write --ignore-path .gitignore --ignore-path .prettierignore .",
-    "lint":"npm run format && next lint"
+    "lint": "npm run format && next lint"
   },
   "dependencies": {
     "clsx": "^2.0.0",

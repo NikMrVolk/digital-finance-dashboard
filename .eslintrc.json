@@ -36,7 +36,7 @@
             {
                 "builtinGlobals": true,
                 "hoist": "all",
-                "allow": ["status", "screen"]
+                "allow": ["status", "screen", "Image"]
             }
         ],
         "arrow-body-style": ["warn", "as-needed"],
