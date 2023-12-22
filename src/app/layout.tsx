@@ -20,9 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="absolute left-0 top-0 z-0 h-20vh w-full bg-mainPageBlackGradient" />
                 <div className="flex">
                     <Aside />
-                    <div className="flex flex-col w-full">
+                    <div className="flex w-full flex-col">
                         <NavBar />
-                        <main className='h-full'>{children}</main>
+                        <main className="h-full">{children}</main>
                     </div>
                 </div>
             </body>

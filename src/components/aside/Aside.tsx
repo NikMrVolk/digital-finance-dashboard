@@ -2,7 +2,7 @@ import AsideLink from './AsideLink'
 
 export default function Aside() {
     return (
-        <aside className="w-30 sticky top-0 z-1 flex h-screen flex-col items-center justify-between bg-black py-5">
+        <aside className="sticky top-0 z-1 flex h-screen w-30 flex-col items-center justify-between bg-black py-5">
             <AsideLink
                 name="circle"
                 color="rgb(255, 0, 50)"
@@ -18,7 +18,7 @@ export default function Aside() {
                 <AsideLink name="activity-square" href="/progress" isNotification />
                 <AsideLink name="pie-chart" href="/insides" />
                 <AsideLink name="wallet-2" href="/wallet" />
-                <AsideLink name="message-circle-more" href="/messages"/>
+                <AsideLink name="message-circle-more" href="/messages" />
                 <AsideLink name="user" href="/profile" />
             </nav>
             <div></div>
