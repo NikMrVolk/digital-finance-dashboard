@@ -20,6 +20,10 @@ const config: Config = {
             zIndex: {
                 1: '1',
             },
+            spacing: {
+                30: '7.5rem', // 120px
+                '20vh': '20vh',
+            },
         },
     },
     plugins: [],

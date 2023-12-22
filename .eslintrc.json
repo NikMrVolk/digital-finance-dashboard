@@ -31,14 +31,6 @@
         "no-multiple-empty-lines": ["warn", { "max": 1 }],
         "prefer-const": "warn",
         "no-use-before-define": "warn",
-        "no-shadow": [
-            "warn",
-            {
-                "builtinGlobals": true,
-                "hoist": "all",
-                "allow": ["status", "screen", "Image"]
-            }
-        ],
         "arrow-body-style": ["warn", "as-needed"],
         "complexity": ["warn", 4],
         "max-statements": ["warn", 10],

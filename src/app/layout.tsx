@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Sora } from 'next/font/google'
 import './globals.css'
 
+import Aside from '@/components/aside/Aside'
 import NavBar from '@/components/nav/NavBar'
 import { cn } from '@/lib/utils'
 
@@ -16,9 +17,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body className={cn('relative min-h-screen', sora.className)}>
-                <div className="absolute left-0 top-0 z-0 h-1/4 w-full bg-mainPageBlackGradient" />
-                <NavBar />
-                <main>{children}</main>
+                <div className="absolute left-0 top-0 z-0 h-20vh w-full bg-mainPageBlackGradient" />
+                <div className="flex">
+                    <Aside />
+                    <div className="flex flex-col w-full">
+                        <NavBar />
+                        <main className='h-full'>{children}</main>
+                    </div>
+                </div>
             </body>
         </html>
     )
