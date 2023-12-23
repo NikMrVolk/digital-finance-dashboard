@@ -22,7 +22,7 @@ export default function AsideLink({
     const pathname = usePathname()
 
     return (
-        <li className={cn('relative', classes?.wrapper)}>
+        <ol className={cn('relative', classes?.wrapper)}>
             <Link href={href}>
                 {isNotification && (
                     <div className="absolute -right-0.5 -top-0.5 z-1 h-3.5 w-3.5 rounded-full border-2 border-black bg-amber-500" />
@@ -37,6 +37,6 @@ export default function AsideLink({
                     {...props}
                 />
             </Link>
-        </li>
+        </ol>
     )
 }
