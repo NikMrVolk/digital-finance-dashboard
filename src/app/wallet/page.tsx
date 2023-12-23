@@ -1,3 +1,3 @@
 export default function Wallet() {
-    return <div className="h-full">wallet</div>
+    return <div className="h-full" />
 }

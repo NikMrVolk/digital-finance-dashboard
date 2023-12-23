@@ -10,7 +10,10 @@ import Icon from '@/lib/icon'
 export default function Header() {
     return (
         <BlockWrapper>
-            <nav className="relative z-1 mb-20 flex items-center justify-between pt-5">
+            <nav
+                className="relative z-1 mb-20 flex items-center justify-between pt-5"
+                data-aos="fade-in-zoom"
+            >
                 <div className="flex gap-5">
                     <Image
                         src="/images/weather.png"
