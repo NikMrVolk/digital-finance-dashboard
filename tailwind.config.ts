@@ -8,6 +8,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            screens: {
+                tall: { raw: '(min-height: 800px)' },
+            },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
@@ -23,6 +26,9 @@ const config: Config = {
             spacing: {
                 30: '7.5rem', // 120px
                 '20vh': '20vh',
+            },
+            scale: {
+                '135': '1.35',
             },
         },
     },

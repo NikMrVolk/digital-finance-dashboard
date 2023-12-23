@@ -1,42 +1,29 @@
-'use client'
+import Image from 'next/image'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-
-import Icon, { IconProps } from '@/lib/icon'
-import { cn } from '@/lib/utils'
-
-interface AsideLinkProps extends IconProps {
-    href: string
-    classes?: { wrapper?: string; icon?: string }
-    isNotification?: boolean
+export interface AsideItemProps {
+    isRouteInclude?: boolean
+    bgSelectedColors?: string
+    bgUnselectedColors?: string
+    children?: React.ReactNode
+    imgSrc: string
+    imgAlt: string
 }
 
-export default function AsideLink({
-    href,
-    classes,
-    name,
-    isNotification,
-    ...props
-}: AsideLinkProps) {
-    const pathname = usePathname()
-
+export default function AsideItem({
+    isRouteInclude = false,
+    imgSrc,
+    imgAlt,
+    bgSelectedColors = '',
+    bgUnselectedColors = 'bg-gray-300/5 hover:bg-gray-300/20 active:bg-gray-300/30',
+    children,
+}: AsideItemProps) {
     return (
-        <ol className={cn('relative', classes?.wrapper)}>
-            <Link href={href}>
-                {isNotification && (
-                    <div className="absolute -right-0.5 -top-0.5 z-1 h-3.5 w-3.5 rounded-full border-2 border-black bg-amber-500" />
-                )}
-                <Icon
-                    name={name}
-                    className={cn(
-                        `h-8 w-8 opacity-40 hover:opacity-80 active:opacity-100 
-                        ${pathname === href ? 'opacity-100 hover:opacity-100' : ''}`,
-                        classes?.icon,
-                    )}
-                    {...props}
-                />
-            </Link>
-        </ol>
+        <li
+            className={`flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-neutral-900 hover:scale-110 ${
+                isRouteInclude ? bgSelectedColors : bgUnselectedColors
+            }`}
+        >
+            {children ? children : <Image src={imgSrc} width={25} height={25} alt={imgAlt} />}
+        </li>
     )
 }

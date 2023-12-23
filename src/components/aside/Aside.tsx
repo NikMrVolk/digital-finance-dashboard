@@ -1,7 +1,9 @@
 import LogoLink from '../logo/LogoLink'
 
+import AsideItem, { AsideItemProps } from './AsideItem'
 import AsideLink from './AsideLink'
 
+import Icon from '@/lib/icon'
 import {
     INSIDES_ROUTE,
     MENU_ROUTE,
@@ -11,6 +13,44 @@ import {
     WALLET_ROUTE,
 } from '@/utils/routs/routs'
 
+const asideItems: AsideItemProps[] = [
+    {
+        isRouteInclude: false,
+        bgSelectedColors: 'bg-orange-300/30 hover:bg-orange-300/40 active:bg-orange-300/50',
+        bgUnselectedColors: 'bg-gray-300/5 hover:bg-orange-300/20 active:bg-orange-300/30',
+        imgSrc: '/images/aside/origin.png',
+        imgAlt: 'origin',
+    },
+    {
+        isRouteInclude: false,
+        bgSelectedColors: 'bg-yellow-300/30 hover:bg-yellow-300/40 active:bg-yellow-300/50',
+        bgUnselectedColors: 'bg-gray-300/5 hover:bg-yellow-300/20 active:bg-yellow-300/30',
+        imgSrc: '/images/aside/bumble.png',
+        imgAlt: 'bumble',
+    },
+    {
+        isRouteInclude: false,
+        bgSelectedColors: 'bg-green-300/30 hover:bg-green-300/40 active:bg-green-300/50',
+        bgUnselectedColors: 'bg-gray-300/5 hover:bg-green-300/20 active:bg-green-300/30',
+        imgSrc: '/images/aside/spotify.png',
+        imgAlt: 'spotify',
+    },
+    {
+        isRouteInclude: false,
+        bgSelectedColors: 'bg-pink-300/30 hover:bg-pink-300/40 active:bg-pink-300/50',
+        bgUnselectedColors: 'bg-gray-300/5 hover:bg-pink-300/20 active:bg-pink-300/30',
+        imgSrc: '/images/aside/netflix.png',
+        imgAlt: 'netflix',
+    },
+    {
+        isRouteInclude: false,
+        bgSelectedColors: 'bg-fuchsia-300/30 hover:bg-fuchsia-300/40 active:bg-fuchsia-300/50',
+        bgUnselectedColors: 'bg-gray-300/5 hover:bg-fuchsia-300/20 active:bg-fuchsia-300/30',
+        imgSrc: '/images/aside/aaa.png',
+        imgAlt: 'aaa',
+    },
+]
+
 export default function Aside() {
     return (
         <aside
@@ -19,21 +59,32 @@ export default function Aside() {
         >
             <LogoLink />
             <nav>
-                <ul className="flex flex-col gap-4">
+                <ul className="tall:gap-6 flex flex-col gap-4">
                     <AsideLink
                         name="component"
                         href={MENU_ROUTE}
-                        classes={{ icon: 'rotate-45 scale-125' }}
+                        classes={{ icon: 'rotate-45 scale-125 hover:scale-135' }}
                     />
                     <AsideLink name="activity-square" href={PROGRESS_ROUTE} isNotification />
                     <AsideLink name="pie-chart" href={INSIDES_ROUTE} />
-                    <AsideLink name="wallet-2" href={WALLET_ROUTE} />
+                    <AsideLink name="wallet-2" href={WALLET_ROUTE} isNotification />
                     <AsideLink name="message-circle-more" href={MESSAGES_ROUTE} />
                     <AsideLink name="user" href={PROFILE_ROUTE} />
                 </ul>
             </nav>
-            <div />
-            <div />
+            <ul className="tall:gap-6 flex flex-col gap-4">
+                {asideItems.map(el => (
+                    <AsideItem key={el.imgSrc} {...el} />
+                ))}
+                <AsideItem imgAlt="" imgSrc="">
+                    <Icon name="plus" className="h-8 w-8 opacity-60" />
+                </AsideItem>
+            </ul>
+            <div>
+                <AsideItem imgAlt="" imgSrc="">
+                    <Icon name="log-out" className="h-6 w-6 opacity-60" />
+                </AsideItem>
+            </div>
         </aside>
     )
 }

@@ -30,7 +30,7 @@ export default function AsideLink({
                 <Icon
                     name={name}
                     className={cn(
-                        `h-8 w-8 opacity-40 hover:opacity-80 active:opacity-100 
+                        `h-8 w-8 opacity-40 hover:opacity-80 active:opacity-100 hover:scale-110
                         ${pathname === href ? 'opacity-100 hover:opacity-100' : ''}`,
                         classes?.icon,
                     )}
