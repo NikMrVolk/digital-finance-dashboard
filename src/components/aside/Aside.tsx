@@ -59,7 +59,7 @@ export default function Aside() {
         >
             <LogoLink />
             <nav>
-                <ul className="tall:gap-6 flex flex-col gap-4">
+                <ul className="flex flex-col gap-4 tall:gap-6">
                     <AsideLink
                         name="component"
                         href={MENU_ROUTE}
@@ -72,7 +72,7 @@ export default function Aside() {
                     <AsideLink name="user" href={PROFILE_ROUTE} />
                 </ul>
             </nav>
-            <ul className="tall:gap-6 flex flex-col gap-4">
+            <ul className="flex flex-col gap-4 tall:gap-6">
                 {asideItems.map(el => (
                     <AsideItem key={el.imgSrc} {...el} />
                 ))}
