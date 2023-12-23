@@ -9,7 +9,11 @@ interface IconProps extends LucideProps {
 const Icon = ({ name, ...props }: IconProps) => {
     const LucideIcon = dynamic(dynamicIconImports[name])
 
-    return <LucideIcon {...props} />
+    return (
+        <div className="cursor-pointer">
+            <LucideIcon {...props} />
+        </div>
+    )
 }
 
 export default Icon

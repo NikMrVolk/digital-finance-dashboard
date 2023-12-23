@@ -3,7 +3,7 @@ import { Sora } from 'next/font/google'
 import './globals.css'
 
 import Aside from '@/components/aside/Aside'
-import NavBar from '@/components/nav/NavBar'
+import Header from '@/components/header/Header'
 import { cn } from '@/lib/utils'
 
 const sora = Sora({ subsets: ['latin'] })
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="flex">
                     <Aside />
                     <div className="flex w-full flex-col">
-                        <NavBar />
+                        <Header />
                         <main className="h-full">{children}</main>
                     </div>
                 </div>
