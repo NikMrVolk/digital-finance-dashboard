@@ -4,13 +4,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import Icon from '@/lib/icon'
+import { MAIN_ROUTE } from '@/utils/routs/routs'
 
 export default function LogoLink() {
     const pathname = usePathname()
 
     return (
         <nav>
-            <Link href="/">
+            <Link href={MAIN_ROUTE}>
                 <Icon
                     name="circle"
                     color="rgb(255, 0, 50)"

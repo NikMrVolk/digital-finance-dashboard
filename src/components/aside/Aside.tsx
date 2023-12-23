@@ -2,6 +2,15 @@ import LogoLink from '../logo/LogoLink'
 
 import AsideLink from './AsideLink'
 
+import {
+    INSIDES_ROUTE,
+    MENU_ROUTE,
+    MESSAGES_ROUTE,
+    PROFILE_ROUTE,
+    PROGRESS_ROUTE,
+    WALLET_ROUTE,
+} from '@/utils/routs/routs'
+
 export default function Aside() {
     return (
         <aside
@@ -13,14 +22,14 @@ export default function Aside() {
                 <ul className="flex flex-col gap-4">
                     <AsideLink
                         name="component"
-                        href="/menu"
+                        href={MENU_ROUTE}
                         classes={{ icon: 'rotate-45 scale-125' }}
                     />
-                    <AsideLink name="activity-square" href="/progress" isNotification />
-                    <AsideLink name="pie-chart" href="/insides" />
-                    <AsideLink name="wallet-2" href="/wallet" />
-                    <AsideLink name="message-circle-more" href="/messages" />
-                    <AsideLink name="user" href="/profile" />
+                    <AsideLink name="activity-square" href={PROGRESS_ROUTE} isNotification />
+                    <AsideLink name="pie-chart" href={INSIDES_ROUTE} />
+                    <AsideLink name="wallet-2" href={WALLET_ROUTE} />
+                    <AsideLink name="message-circle-more" href={MESSAGES_ROUTE} />
+                    <AsideLink name="user" href={PROFILE_ROUTE} />
                 </ul>
             </nav>
             <div />
