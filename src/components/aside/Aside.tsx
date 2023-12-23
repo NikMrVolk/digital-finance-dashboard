@@ -21,8 +21,8 @@ export default function Aside() {
                 <AsideLink name="message-circle-more" href="/messages" />
                 <AsideLink name="user" href="/profile" />
             </nav>
-            <div></div>
-            <div></div>
+            {/* <div></div> */}
+            {/* <div></div> */}
         </aside>
     )
 }
