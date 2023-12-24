@@ -31,7 +31,11 @@ const config: Config = {
                 '135': '1.35',
             },
             gridTemplateColumns: {
-                progressContainer: '1fr minmax(240px, 20%)',
+                progressContainer: '1fr minmax(240px, 25%)',
+            },
+            colors: {
+                statisticButton: '#fb5932',
+                dashboardGray: '#7c807e',
             },
         },
     },

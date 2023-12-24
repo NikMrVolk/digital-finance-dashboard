@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import BlockWrapper from '../wrappers/BlockWrapper'
+import BlockWrapper from '../common/wrappers/BlockWrapper'
 
 import HeaderSearch from './HeaderSearch'
 import User from './User'
@@ -11,7 +11,7 @@ export default function Header() {
     return (
         <BlockWrapper>
             <nav
-                className="relative z-1 mb-12 flex items-center justify-between pt-5"
+                className="relative z-1 mb-10 flex items-center justify-between pt-5"
                 data-aos="fade-in-zoom"
             >
                 <div className="flex gap-5">
