@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Aside />
                     <div className=" flex w-full flex-col">
                         <Header />
-                        <main className="h-full">{children}</main>
+                        <main className="mb-10 h-full">{children}</main>
                     </div>
                 </div>
             </body>
