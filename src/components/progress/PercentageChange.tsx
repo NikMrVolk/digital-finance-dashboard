@@ -1,4 +1,4 @@
-import Icon from '@/lib/icon'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 interface PercentageChangeProps {
     isGain: boolean
@@ -12,11 +12,7 @@ export default function PercentageChange({ isGain, percent }: PercentageChangePr
                 isGain ? 'text-green-800' : 'text-red-800'
             }`}
         >
-            {isGain ? (
-                <Icon name="chevron-up" className="h-4 w-4" />
-            ) : (
-                <Icon name="chevron-down" className="h-4 w-4" />
-            )}
+            {isGain ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
             <span>
                 {isGain ? '+' : '-'}
                 {percent}%

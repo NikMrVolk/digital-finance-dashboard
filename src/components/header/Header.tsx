@@ -1,11 +1,10 @@
+import { Bell, Mic, Moon } from 'lucide-react'
 import Image from 'next/image'
 
 import BlockWrapper from '../common/wrappers/BlockWrapper'
 
 import HeaderSearch from './HeaderSearch'
 import User from './User'
-
-import Icon from '@/lib/icon'
 
 export default function Header() {
     return (
@@ -26,9 +25,9 @@ export default function Header() {
                 </div>
                 <HeaderSearch />
                 <div className="flex items-center gap-10">
-                    <Icon name="moon" />
-                    <Icon name="mic" />
-                    <Icon name="bell" />
+                    <Moon />
+                    <Mic />
+                    <Bell />
                     <User />
                 </div>
             </nav>

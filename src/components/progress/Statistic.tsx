@@ -1,7 +1,7 @@
+import { BookText, Settings, Star } from 'lucide-react'
+
 import AsideItem from '../aside/AsideItem'
 import StatisticTitle from '../common/titles/StatisticTitle'
-
-import Icon from '@/lib/icon'
 
 export default function Statistic() {
     return (
@@ -12,13 +12,13 @@ export default function Statistic() {
                 </div>
                 <div className="flex items-center justify-center gap-4">
                     <AsideItem>
-                        <Icon name="book-text" />
+                        <BookText />
                     </AsideItem>
                     <AsideItem>
-                        <Icon name="star" />
+                        <Star />
                     </AsideItem>
                     <AsideItem>
-                        <Icon name="settings" />
+                        <Settings />
                     </AsideItem>
                 </div>
             </div>

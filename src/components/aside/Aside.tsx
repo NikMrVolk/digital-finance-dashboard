@@ -1,9 +1,19 @@
+import {
+    ActivitySquare,
+    Component,
+    LogOut,
+    MessageCircleMore,
+    PieChart,
+    Plus,
+    User,
+    Wallet2,
+} from 'lucide-react'
+
 import LogoLink from '../logo/LogoLink'
 
 import AsideItem from './AsideItem'
 import AsideLink from './AsideLink'
 
-import Icon from '@/lib/icon'
 import { asideItems } from '@/mock/progressItems'
 import {
     INSIDES_ROUTE,
@@ -25,15 +35,26 @@ export default function Aside() {
             <nav>
                 <ul className="flex flex-col gap-6">
                     <AsideLink
-                        name="component"
                         href={MENU_ROUTE}
                         classes={{ icon: 'rotate-45 scale-125 hover:scale-135' }}
-                    />
-                    <AsideLink name="activity-square" href={PROGRESS_ROUTE} isNotification />
-                    <AsideLink name="pie-chart" href={INSIDES_ROUTE} />
-                    <AsideLink name="wallet-2" href={WALLET_ROUTE} isNotification />
-                    <AsideLink name="message-circle-more" href={MESSAGES_ROUTE} />
-                    <AsideLink name="user" href={PROFILE_ROUTE} />
+                    >
+                        <Component className="h-full w-full" />
+                    </AsideLink>
+                    <AsideLink href={PROGRESS_ROUTE} isNotification>
+                        <ActivitySquare className="h-full w-full" />
+                    </AsideLink>
+                    <AsideLink href={INSIDES_ROUTE}>
+                        <PieChart className="h-full w-full" />
+                    </AsideLink>
+                    <AsideLink href={WALLET_ROUTE} isNotification>
+                        <Wallet2 className="h-full w-full" />
+                    </AsideLink>
+                    <AsideLink href={MESSAGES_ROUTE}>
+                        <MessageCircleMore className="h-full w-full" />
+                    </AsideLink>
+                    <AsideLink href={PROFILE_ROUTE}>
+                        <User className="h-full w-full" />
+                    </AsideLink>
                 </ul>
             </nav>
             <ul className="flex flex-col gap-6">
@@ -45,12 +66,12 @@ export default function Aside() {
                     />
                 ))}
                 <AsideItem imgAlt="" imgSrc="">
-                    <Icon name="plus" className="h-6 w-6 opacity-60 tall:h-8 tall:w-8" />
+                    <Plus className="h-6 w-6 opacity-60 tall:h-8 tall:w-8" />
                 </AsideItem>
             </ul>
             <div>
                 <AsideItem imgAlt="" imgSrc="">
-                    <Icon name="log-out" className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />
+                    <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />
                 </AsideItem>
             </div>
         </aside>
