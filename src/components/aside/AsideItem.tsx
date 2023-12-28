@@ -7,15 +7,16 @@ export interface AsideItemProps {
     bgSelectedColors?: string
     bgUnselectedColors?: string
     children?: React.ReactNode
-    imgSrc: string
-    imgAlt: string
+    imgSrc?: string
+    imgAlt?: string
     classes?: { wrapper?: string; image?: string }
+    fullName?: string
 }
 
 export default function AsideItem({
     isRouteInclude = false,
-    imgSrc,
-    imgAlt,
+    imgSrc = '',
+    imgAlt = '',
     bgSelectedColors = '',
     bgUnselectedColors = 'bg-gray-300/5 hover:bg-gray-300/20 active:bg-gray-300/30',
     children,

@@ -1,5 +1,6 @@
 import BlockWrapper from '@/components/common/wrappers/BlockWrapper'
 import Portfolio from '@/components/progress/Portfolio'
+import Statistic from '@/components/progress/Statistic'
 import DashboardCard from '@/components/UI/DashboardCard'
 
 export default function Progress() {
@@ -10,7 +11,7 @@ export default function Progress() {
                     <Portfolio />
                 </DashboardCard>
                 <DashboardCard className="h-full">
-                    <div />
+                    <Statistic />
                 </DashboardCard>
             </div>
             <DashboardCard>

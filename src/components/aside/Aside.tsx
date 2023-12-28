@@ -1,9 +1,10 @@
 import LogoLink from '../logo/LogoLink'
 
-import AsideItem, { AsideItemProps } from './AsideItem'
+import AsideItem from './AsideItem'
 import AsideLink from './AsideLink'
 
 import Icon from '@/lib/icon'
+import { asideItems } from '@/mock/progressItems'
 import {
     INSIDES_ROUTE,
     MENU_ROUTE,
@@ -12,44 +13,6 @@ import {
     PROGRESS_ROUTE,
     WALLET_ROUTE,
 } from '@/utils/routs/routs'
-
-const asideItems: AsideItemProps[] = [
-    {
-        isRouteInclude: false,
-        bgSelectedColors: 'bg-orange-300/30 hover:bg-orange-300/40 active:bg-orange-300/50',
-        bgUnselectedColors: 'bg-gray-300/5 hover:bg-orange-300/20 active:bg-orange-300/30',
-        imgSrc: '/images/aside/origin.png',
-        imgAlt: 'origin',
-    },
-    {
-        isRouteInclude: false,
-        bgSelectedColors: 'bg-yellow-300/30 hover:bg-yellow-300/40 active:bg-yellow-300/50',
-        bgUnselectedColors: 'bg-gray-300/5 hover:bg-yellow-300/20 active:bg-yellow-300/30',
-        imgSrc: '/images/aside/bumble.png',
-        imgAlt: 'bumble',
-    },
-    {
-        isRouteInclude: false,
-        bgSelectedColors: 'bg-green-300/30 hover:bg-green-300/40 active:bg-green-300/50',
-        bgUnselectedColors: 'bg-gray-300/5 hover:bg-green-300/20 active:bg-green-300/30',
-        imgSrc: '/images/aside/spotify.png',
-        imgAlt: 'spotify',
-    },
-    {
-        isRouteInclude: false,
-        bgSelectedColors: 'bg-pink-300/30 hover:bg-pink-300/40 active:bg-pink-300/50',
-        bgUnselectedColors: 'bg-gray-300/5 hover:bg-pink-300/20 active:bg-pink-300/30',
-        imgSrc: '/images/aside/netflix.png',
-        imgAlt: 'netflix',
-    },
-    {
-        isRouteInclude: false,
-        bgSelectedColors: 'bg-fuchsia-300/30 hover:bg-fuchsia-300/40 active:bg-fuchsia-300/50',
-        bgUnselectedColors: 'bg-gray-300/5 hover:bg-fuchsia-300/20 active:bg-fuchsia-300/30',
-        imgSrc: '/images/aside/aaa.png',
-        imgAlt: 'aaa',
-    },
-]
 
 export default function Aside() {
     return (

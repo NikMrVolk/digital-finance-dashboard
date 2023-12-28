@@ -1,8 +1,8 @@
 import StatisticTitle from '../common/titles/StatisticTitle'
 import StatisticButton from '../UI/StatisticButton'
 
-import Icon from '@/lib/icon'
-import { numberFormat } from '@/utils/format/numberFormat'
+import MoneySum from './MoneySum'
+import PercentageChange from './PercentageChange'
 
 interface Portfolio {
     title: string
@@ -54,28 +54,9 @@ export default function Portfolio() {
                     <div key={title}>
                         <div className="mb-4 flex items-center justify-between">
                             <h3 className="text-dashboardGray">{title}</h3>
-                            <div
-                                className={`flex items-center justify-center gap-1 text-xs ${
-                                    isGain ? 'text-green-800' : 'text-red-800'
-                                }`}
-                            >
-                                {isGain ? (
-                                    <Icon name="chevron-up" className="h-4 w-4" />
-                                ) : (
-                                    <Icon name="chevron-down" className="h-4 w-4" />
-                                )}
-                                <span>
-                                    {isGain ? '+' : '-'}
-                                    {percent}%
-                                </span>
-                            </div>
+                            <PercentageChange percent={percent} isGain={isGain} />
                         </div>
-                        <div className="flex gap-1">
-                            <span className="-translate-y-1 text-lg font-medium text-dashboardGray	">
-                                $
-                            </span>
-                            <span className="text-3xl">{numberFormat(amount)}</span>
-                        </div>
+                        <MoneySum amount={amount} />
                     </div>
                 ))}
             </div>
