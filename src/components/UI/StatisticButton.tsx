@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-interface StatisticButtonProps {
+export interface StatisticButtonProps {
     children: React.ReactNode
     className?: string
     onClick?: () => void

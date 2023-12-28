@@ -40,6 +40,7 @@ export default function AsideItem({
                     height={25}
                     alt={imgAlt}
                     className={cn('', classes.image)}
+                    quality={100}
                 />
             )}
         </li>
