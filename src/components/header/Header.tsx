@@ -10,7 +10,7 @@ export default function Header() {
     return (
         <BlockWrapper>
             <nav
-                className="relative z-1 mb-10 flex items-center justify-between pt-5"
+                className="relative z-1 mb-9 flex items-center justify-between pt-5"
                 data-aos="fade-in-zoom"
             >
                 <div className="flex gap-5">

@@ -8,5 +8,5 @@ interface StatisticTitleProps {
 }
 
 export default function StatisticTitle({ children, className }: StatisticTitleProps) {
-    return <h2 className={cn('text-2xl', className)}>{children}</h2>
+    return <h2 className={cn('text-xl tall:text-2xl', className)}>{children}</h2>
 }

@@ -17,7 +17,7 @@ export default function StatisticSwitchBtn({
     return (
         <button
             className={cn(
-                `rounded-xl px-5 py-2 text-xs active:translate-y-px ${
+                `rounded-xl px-5 py-1.5 text-2xs font-medium active:translate-y-px tall:py-2 tall:text-xs ${
                     isBright ? colors.bright : colors.dull
                 }`,
                 className,

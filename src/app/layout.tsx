@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <AOSInit />
             <body className={cn('relative min-h-screen', sora.className)}>
                 <div
-                    className="absolute left-0 top-0 z-0 h-20vh w-full bg-mainPageBlackGradient"
+                    className="absolute left-0 top-0 z-0 h-23vh w-full bg-mainPageBlackGradient"
                     data-aos="fade-in-zoom"
                 />
                 <div className="flex">

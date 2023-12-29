@@ -25,7 +25,7 @@ const config: Config = {
             },
             spacing: {
                 30: '7.5rem', // 120px
-                '20vh': '20vh',
+                '23vh': '23vh',
             },
             scale: {
                 '135': '1.35',
@@ -36,6 +36,9 @@ const config: Config = {
             colors: {
                 statisticButton: '#fb5932',
                 dashboardGray: '#7c807e',
+            },
+            fontSize: {
+                '2xs': ['0.625rem', '0.875rem'],
             },
         },
     },

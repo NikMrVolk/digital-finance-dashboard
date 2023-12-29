@@ -41,7 +41,7 @@ const portfolio: Portfolio[] = [
 export default function Portfolio() {
     return (
         <div>
-            <div className="mb-8 flex justify-between">
+            <div className="mb-4 flex justify-between">
                 <StatisticTitle>Overall Portfolio</StatisticTitle>
 
                 <div className="flex gap-4">
@@ -53,7 +53,7 @@ export default function Portfolio() {
                 {portfolio.map(({ title, percent, isGain, amount }) => (
                     <div key={title}>
                         <div className="mb-4 flex items-center justify-between">
-                            <h3 className="text-dashboardGray">{title}</h3>
+                            <h3 className="text-sm text-dashboardGray tall:text-base">{title}</h3>
                             <PercentageChange percent={percent} isGain={isGain} />
                         </div>
                         <MoneySum amount={amount} />
