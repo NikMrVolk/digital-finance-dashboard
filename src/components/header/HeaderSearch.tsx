@@ -2,13 +2,13 @@
 
 import { useState } from 'react'
 
-import MainInput from '../UI/MainInput'
+import HeaderSearchInput from '../UI/HeaderSearchInput'
 
 export default function HeaderSearch() {
     const [value, setValue] = useState<string>('')
 
     return (
-        <MainInput
+        <HeaderSearchInput
             type="text"
             placeholder="Search"
             value={value}

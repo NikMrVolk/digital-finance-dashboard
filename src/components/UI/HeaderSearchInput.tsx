@@ -2,7 +2,7 @@ import { Search } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
-interface MainInputProps {
+interface HeaderSearchInputProps {
     type: string
     value: string
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -10,18 +10,18 @@ interface MainInputProps {
     className?: string
 }
 
-export default function MainInput({
+export default function HeaderSearchInput({
     value,
     onChange,
     placeholder,
     type,
     className,
-}: MainInputProps) {
+}: HeaderSearchInputProps) {
     return (
         <label className="relative block">
             <span className="sr-only">Search</span>
             <span className="absolute inset-y-0 left-1 flex items-center pl-2">
-                <Search className="h-4 w-4" />
+                <Search className="h-4 w-4 cursor-pointer" />
             </span>
             <input
                 type={type}

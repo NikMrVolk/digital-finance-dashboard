@@ -1,4 +1,5 @@
 import { Bell, Mic, Moon } from 'lucide-react'
+import moment from 'moment'
 import Image from 'next/image'
 
 import BlockWrapper from '../common/wrappers/BlockWrapper'
@@ -21,13 +22,13 @@ export default function Header() {
                         alt="user"
                         className="h-6 w-6"
                     />
-                    <div>Friday, 4 Nov 2022</div>
+                    <div>{moment(Date.now()).format('dddd, D MMM YYYY')}</div>
                 </div>
                 <HeaderSearch />
                 <div className="flex items-center gap-10">
-                    <Moon />
-                    <Mic />
-                    <Bell />
+                    <Moon className="cursor-pointer" />
+                    <Mic className="cursor-pointer" />
+                    <Bell className="cursor-pointer" />
                     <User />
                 </div>
             </nav>
