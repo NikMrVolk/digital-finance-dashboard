@@ -4,7 +4,7 @@ import AsideItem from '../aside/AsideItem'
 import StatisticTitle from '../common/titles/StatisticTitle'
 import StatisticSwitchBtn from '../UI/StatisticSwitchBtn'
 
-import Graphic from './Graphic'
+import Chart from './chart/Chart'
 import MoneySum from './MoneySum'
 import PercentageChange from './PercentageChange'
 
@@ -57,9 +57,7 @@ export default function Statistic() {
                     <StatisticSwitchBtn>MAX</StatisticSwitchBtn>
                 </div>
             </div>
-            <div className="h-full">
-                <Graphic />
-            </div>
+            <Chart />
         </div>
     )
 }

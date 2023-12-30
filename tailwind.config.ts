@@ -36,6 +36,7 @@ const config: Config = {
             colors: {
                 statisticButton: '#fb5932',
                 dashboardGray: '#7c807e',
+                customTooltip: '#202020',
             },
             fontSize: {
                 '2xs': ['0.625rem', '0.875rem'],
