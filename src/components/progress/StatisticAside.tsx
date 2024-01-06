@@ -13,7 +13,7 @@ const amount = 8089
 
 export default function StatisticAside() {
     return (
-        <div className="flex flex-col items-center justify-center gap-4">
+        <div className="flex flex-col items-center justify-center gap-3">
             <div className="flex items-center justify-center gap-2">
                 <AsideItem
                     imgSrc={asideItems[0].imgSrc}
@@ -26,8 +26,8 @@ export default function StatisticAside() {
                 <div className="text-sm tall:text-lg"> {asideItems[0].fullName}</div>
             </div>
             <div className="w-full rounded-3xl bg-gradient-to-r from-black via-gray-100 to-black">
-                <div className="flex flex-col items-center justify-center gap-2 bg-black/75 px-8 py-3">
-                    <div className="opacity-60">My Portfolio</div>
+                <div className="flex flex-col items-center justify-center gap-1.5 bg-black/75 px-8 py-2">
+                    <div className="text-dashboardGray">My Portfolio</div>
                     <MoneySum
                         amount={amount}
                         classes={{

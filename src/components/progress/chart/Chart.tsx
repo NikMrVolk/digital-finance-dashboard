@@ -120,7 +120,7 @@ export default function Chart() {
                         cursor={<CustomCursor dotRef={dotRef} />}
                     />
                     <Area
-                        type="monotone"
+                        type="natural"
                         dataKey="count"
                         stroke="url(#myGradient)"
                         strokeWidth={4}
