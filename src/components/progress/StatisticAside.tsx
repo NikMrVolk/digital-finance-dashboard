@@ -15,14 +15,16 @@ export default function StatisticAside() {
     return (
         <div className="flex flex-col items-center justify-center gap-3">
             <div className="flex items-center justify-center gap-2">
-                <AsideItem
-                    imgSrc={asideItems[0].imgSrc}
-                    imgAlt={asideItems[0].imgAlt}
-                    classes={{
-                        wrapper: 'w-10 h-10 tall:w-12 tall:h-12',
-                        image: 'w-8 h-8 tall:w-9 tall:h-9 max-w-max',
-                    }}
-                />
+                <div>
+                    <AsideItem
+                        imgSrc={asideItems[0].imgSrc}
+                        imgAlt={asideItems[0].imgAlt}
+                        classes={{
+                            wrapper: 'w-10 h-10 tall:w-12 tall:h-12',
+                            image: 'w-8 h-8 tall:w-9 tall:h-9',
+                        }}
+                    />
+                </div>
                 <div className="text-sm tall:text-lg"> {asideItems[0].fullName}</div>
             </div>
             <div className="w-full rounded-3xl bg-gradient-to-r from-black via-gray-100 to-black">
