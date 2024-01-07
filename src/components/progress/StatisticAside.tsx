@@ -2,6 +2,7 @@ import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 
 import AsideItem from '../aside/AsideItem'
+import CheckBox from '../UI/CheckBox'
 
 import MoneySum from './MoneySum'
 import CircleChart from './pieChart/СircleChart'
@@ -46,6 +47,7 @@ export default function StatisticAside() {
                 </Link>
             </div>
             <CircleChart />
+            <CheckBox />
         </div>
     )
 }
