@@ -22,7 +22,7 @@ export default function StatisticButton({
     return (
         <button
             className={cn(
-                `rounded-2xl px-5 py-1.5 text-sm active:translate-y-px tall:py-2 tall:text-base ${
+                `rounded-xl px-5 py-1.5 text-sm active:translate-y-px tall:py-2 tall:text-base ${
                     isBright ? colors.bright : colors.dull
                 }`,
                 className,
