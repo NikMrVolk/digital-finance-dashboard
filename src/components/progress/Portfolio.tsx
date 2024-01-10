@@ -59,7 +59,6 @@ export default function Portfolio() {
                         <MoneySum amount={amount} />
                     </div>
                 ))}
-                C
             </div>
         </div>
     )
