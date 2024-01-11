@@ -3,6 +3,7 @@ import { Sora } from 'next/font/google'
 import '../globals.css'
 
 import { AOSInit } from '@/lib/aos'
+import { Providers } from '@/lib/Providers'
 import { cn } from '@/lib/utils'
 
 const sora = Sora({ subsets: ['latin'] })
@@ -17,7 +18,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <html lang="en">
             <AOSInit />
             <body className={cn('relative min-h-screen', sora.className)}>
-                <main className="flex min-h-screen items-center justify-center">{children}</main>
+                <Providers>
+                    <main className="flex min-h-screen items-center justify-center">
+                        {children}
+                    </main>
+                </Providers>
             </body>
         </html>
     )
