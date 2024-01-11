@@ -3,15 +3,15 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 import DashboardCard from '../UI/DashboardCard'
+import LoginInput from '../UI/LoginInput'
 import StatisticButton from '../UI/StatisticButton'
 
-import { cn } from '@/lib/utils'
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '@/utils/routs/routs'
 
-interface IData {
+export interface IData {
     email: string
     username?: string
     password: string
@@ -28,65 +28,57 @@ export default function AuthForm() {
 
     const isLogin = pathname === LOGIN_ROUTE
 
-    const onSubmit = (data: IData) => {
+    const onSubmit: SubmitHandler<IData> = data => {
         console.log(data)
     }
 
     return (
-        <DashboardCard className="w-[40rem]">
+        <DashboardCard className="w-full max-w-160">
             <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
                 <h2 className="text-3xl font-medium	">Sign {isLogin ? 'in' : 'up'}</h2>
-                <label className="flex flex-col gap-1 text-gray-600">
-                    Email
-                    <input
-                        type="email"
-                        placeholder="Enter email: "
-                        {...register('email', { required: true })}
-                        className={cn(
-                            'w-full rounded-2xl border px-4 py-2 focus:border-indigo-500 focus:outline-none',
-                        )}
+                <LoginInput
+                    label="email"
+                    labelText="Your Email"
+                    register={register}
+                    required
+                    errors={errors}
+                    inpType="email"
+                    inpPlaceholder="Enter email: "
+                />
+                {!isLogin && (
+                    <LoginInput
+                        label="username"
+                        labelText="Username (optional)"
+                        register={register}
+                        errors={errors}
+                        inpType="text"
+                        inpPlaceholder="Enter username: "
                     />
-                    {errors?.email && <p>{errors.email.message}</p>}
-                </label>
-
-                {isLogin && (
-                    <label className="flex flex-col gap-1 text-gray-600">
-                        Username (optional)
-                        <input
-                            type="email"
-                            placeholder="Enter username: "
-                            {...register('username', { required: true })}
-                            className={cn(
-                                'w-full rounded-2xl border px-4 py-2 focus:border-indigo-500 focus:outline-none',
-                            )}
-                        />
-                    </label>
                 )}
-                <div>
-                    <label className="flex flex-col gap-1 text-gray-600">
-                        Your password
-                        <input
-                            type="password"
-                            placeholder="Enter password: "
-                            {...register('password', { required: true })}
-                            className={cn(
-                                'w-full rounded-2xl border px-4 py-2 focus:border-indigo-500 focus:outline-none',
-                            )}
-                        />
-                    </label>
-                </div>
-                {isLogin && (
-                    <label className="flex flex-col gap-1 text-gray-600">
-                        Username (optional)
-                        <input
-                            type="password"
-                            placeholder="Enter password: "
-                            {...register('confirmedPassword', { required: true })}
-                            className={cn(
-                                'w-full rounded-2xl border px-4 py-2 focus:border-indigo-500 focus:outline-none',
-                            )}
-                        />
-                    </label>
+                <LoginInput
+                    label="password"
+                    labelText="You password"
+                    register={register}
+                    required
+                    errors={errors}
+                    inpType="password"
+                    inpPlaceholder="Enter password: "
+                    infoForUser={
+                        !isLogin
+                            ? 'Your password must contain one uppercase letter, one lowercase letter and a number. Min password length is 8 characters.'
+                            : ''
+                    }
+                />
+                {!isLogin && (
+                    <LoginInput
+                        label="confirmedPassword"
+                        labelText="Confirm your password"
+                        register={register}
+                        required
+                        errors={errors}
+                        inpType="password"
+                        inpPlaceholder="Enter password: "
+                    />
                 )}
                 <StatisticButton className="rounded-2xl" type="submit">
                     Continue
