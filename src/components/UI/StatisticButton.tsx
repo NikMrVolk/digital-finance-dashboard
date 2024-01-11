@@ -5,6 +5,7 @@ export interface StatisticButtonProps {
     className?: string
     onClick?: () => void
     isBright?: boolean
+    type?: 'button' | 'submit' | 'reset' | undefined
 }
 
 const colors: { bright: string; dull: string } = {
@@ -18,6 +19,7 @@ export default function StatisticButton({
     className,
     onClick,
     isBright = false,
+    type = 'button',
 }: StatisticButtonProps) {
     return (
         <button
@@ -28,6 +30,7 @@ export default function StatisticButton({
                 className,
             )}
             onClick={onClick}
+            type={type}
         >
             {children}
         </button>

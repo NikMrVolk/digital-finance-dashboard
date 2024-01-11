@@ -9,6 +9,7 @@ import {
     Wallet2,
 } from 'lucide-react'
 
+import ClickLogOutWrapper from '../common/wrappers/ClickLogOutWrapper'
 import LogoLink from '../logo/LogoLink'
 
 import AsideItem from './AsideItem'
@@ -65,14 +66,16 @@ export default function Aside() {
                         classes={{ image: 'h-5 w-5 tall:h-6 tall:w-6' }}
                     />
                 ))}
-                <AsideItem imgAlt="" imgSrc="">
+                <AsideItem>
                     <Plus className="h-6 w-6 opacity-60 tall:h-8 tall:w-8" />
                 </AsideItem>
             </ul>
             <div>
-                <AsideItem imgAlt="" imgSrc="">
-                    <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />
-                </AsideItem>
+                <ClickLogOutWrapper>
+                    <AsideItem>
+                        <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />
+                    </AsideItem>
+                </ClickLogOutWrapper>
             </div>
         </aside>
     )
