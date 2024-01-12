@@ -2,8 +2,6 @@ import { FieldErrors, UseFormRegister, UseFormWatch } from 'react-hook-form'
 
 import LoginInput from '../UI/LoginInput'
 
-import ConditionElement from './ConditionElement'
-
 import { IAuthFormData } from '@/services/auth/auth.types'
 
 interface AuthInputsProps {
@@ -31,19 +29,14 @@ export default function AuthInputs({ register, errors, isLogin, watch }: AuthInp
                 inpType="email"
                 inpPlaceholder="Enter email: "
             />
-            <ConditionElement
-                condition={!isLogin}
-                ifTrue={
-                    <LoginInput
-                        labelValue="name"
-                        labelText="Username (optional)"
-                        register={register}
-                        registerOptions={{ required: false }}
-                        errors={errors}
-                        inpType="text"
-                        inpPlaceholder="Enter username: "
-                    />
-                }
+            <LoginInput
+                labelValue="name"
+                labelText="Username (optional)"
+                register={register}
+                registerOptions={{ required: false }}
+                errors={errors}
+                inpType="text"
+                inpPlaceholder="Enter username: "
             />
             <LoginInput
                 labelValue="password"
@@ -70,22 +63,17 @@ export default function AuthInputs({ register, errors, isLogin, watch }: AuthInp
                         : ''
                 }
             />
-            <ConditionElement
-                condition={!isLogin}
-                ifTrue={
-                    <LoginInput
-                        labelValue="confirmedPassword"
-                        labelText="Confirm your password"
-                        register={register}
-                        registerOptions={{
-                            required: 'Required field',
-                            validate: val => watch('password') === val || 'Passwords must match',
-                        }}
-                        errors={errors}
-                        inpType="password"
-                        inpPlaceholder="Enter password: "
-                    />
-                }
+            <LoginInput
+                labelValue="confirmedPassword"
+                labelText="Confirm your password"
+                register={register}
+                registerOptions={{
+                    required: 'Required field',
+                    validate: val => watch('password') === val || 'Passwords must match',
+                }}
+                errors={errors}
+                inpType="password"
+                inpPlaceholder="Enter password: "
             />
         </>
     )
