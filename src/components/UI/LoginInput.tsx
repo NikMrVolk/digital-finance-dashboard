@@ -1,20 +1,24 @@
 'use client'
 
-import { FieldErrors, Path, UseFormRegister } from 'react-hook-form'
+import { useState } from 'react'
+
+import { FieldErrors, Path, RegisterOptions, UseFormRegister } from 'react-hook-form'
 
 import { IData } from '../auth/AuthForm'
+import ConditionElement from '../auth/ConditionElement'
+import EyeOnPassword from '../auth/EyeOnPassword'
 
 import { cn } from '@/lib/utils'
 
 interface LoginInputProps {
-    label: Path<IData>
+    labelValue: Path<IData>
     labelText?: string
     register: UseFormRegister<IData>
-    required?: boolean
+    registerOptions?: RegisterOptions<IData>
     errors: FieldErrors<IData>
     classes?: {
         wrapper?: string
-        label?: string
+        labelValue?: string
         input?: string
         infoForUser?: string
         error?: string
@@ -25,30 +29,46 @@ interface LoginInputProps {
 }
 
 export default function LoginInput({
-    label,
+    labelValue,
     labelText,
     register,
-    required = false,
+    registerOptions = { required: 'Required field' },
     errors,
-    classes = { wrapper: '', label: '', input: '', infoForUser: '', error: '' },
+    classes = { wrapper: '', labelValue: '', input: '', infoForUser: '', error: '' },
     inpType,
     inpPlaceholder,
     infoForUser,
 }: LoginInputProps) {
+    const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
+
     return (
         <label className={cn('flex flex-col gap-1 text-gray-600', classes.wrapper)}>
-            {label && <p className={cn('text-sm', classes)}>{labelText}</p>}
-            <input
-                type={inpType}
-                placeholder={inpPlaceholder}
-                {...register(label, { required })}
-                className={cn(
-                    'w-full rounded-2xl border px-4 py-2 focus:border-indigo-500 focus:outline-none',
-                    classes.input,
-                )}
+            {labelValue && <p className={cn('text-sm', classes.labelValue)}>{labelText}</p>}
+            <div className="relative block">
+                <input
+                    type={isShowPassword ? 'text' : inpType}
+                    placeholder={inpPlaceholder}
+                    {...register(labelValue, registerOptions)}
+                    className={cn(
+                        `w-full rounded-2xl border px-4 py-2 focus:border-indigo-500 focus:outline-none`,
+                        classes.input,
+                    )}
+                />
+                <EyeOnPassword
+                    condition={inpType === 'password'}
+                    isShowPassword={isShowPassword}
+                    setIsShowPassword={setIsShowPassword}
+                />
+            </div>
+            <ConditionElement
+                condition={!!infoForUser}
+                ifTrue={<p className={cn('text-sm', classes.infoForUser)}>{infoForUser}</p>}
             />
-            {infoForUser && <p className={cn('text-sm', classes.infoForUser)}>{infoForUser}</p>}
-            {errors?.email && <p className={cn('', classes.error)}>{errors.email.message}</p>}
+            {errors[labelValue] && (
+                <p className={cn('text-sm text-red-500', classes.error)}>
+                    {errors[labelValue]?.message}
+                </p>
+            )}
         </label>
     )
 }

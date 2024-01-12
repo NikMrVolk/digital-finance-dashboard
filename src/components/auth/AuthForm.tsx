@@ -25,13 +25,15 @@ export default function AuthForm() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IData>()
+        watch,
+    } = useForm<IData>({ mode: 'onChange' })
 
     const isLogin = pathname === LOGIN_ROUTE
 
     const onSubmit: SubmitHandler<IData> = data => {
         console.log(data)
     }
+    console.log(errors)
 
     return (
         <DashboardCard className="w-full max-w-160">
@@ -40,10 +42,16 @@ export default function AuthForm() {
                     Sign <ConditionElement condition={isLogin} ifTrue="in" ifFalse="up" />
                 </h2>
                 <LoginInput
-                    label="email"
+                    labelValue="email"
                     labelText="Your Email"
                     register={register}
-                    required
+                    registerOptions={{
+                        required: 'Required field',
+                        pattern: {
+                            value: /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
+                            message: 'Check your e-mail address',
+                        },
+                    }}
                     errors={errors}
                     inpType="email"
                     inpPlaceholder="Enter email: "
@@ -52,9 +60,10 @@ export default function AuthForm() {
                     condition={!isLogin}
                     ifTrue={
                         <LoginInput
-                            label="username"
+                            labelValue="username"
                             labelText="Username (optional)"
                             register={register}
+                            registerOptions={{ required: false }}
                             errors={errors}
                             inpType="text"
                             inpPlaceholder="Enter username: "
@@ -62,10 +71,21 @@ export default function AuthForm() {
                     }
                 />
                 <LoginInput
-                    label="password"
+                    labelValue="password"
                     labelText="You password"
                     register={register}
-                    required
+                    registerOptions={{
+                        required: 'Required field',
+                        pattern: {
+                            value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/,
+                            message: `${
+                                isLogin
+                                    ? 'Your password must contain one uppercase letter, one lowercase letter and a number.'
+                                    : 'Check your password'
+                            }`,
+                        },
+                        minLength: { value: 8, message: 'Min password length is 8 characters.' },
+                    }}
                     errors={errors}
                     inpType="password"
                     inpPlaceholder="Enter password: "
@@ -79,10 +99,14 @@ export default function AuthForm() {
                     condition={!isLogin}
                     ifTrue={
                         <LoginInput
-                            label="confirmedPassword"
+                            labelValue="confirmedPassword"
                             labelText="Confirm your password"
                             register={register}
-                            required
+                            registerOptions={{
+                                required: 'Required field',
+                                validate: val =>
+                                    watch('password') === val || 'Passwords must match',
+                            }}
                             errors={errors}
                             inpType="password"
                             inpPlaceholder="Enter password: "
