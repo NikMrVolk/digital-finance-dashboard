@@ -4,18 +4,18 @@ import { useState } from 'react'
 
 import { FieldErrors, Path, RegisterOptions, UseFormRegister } from 'react-hook-form'
 
-import { IData } from '../auth/AuthForm'
 import ConditionElement from '../auth/ConditionElement'
 import EyeOnPassword from '../auth/EyeOnPassword'
 
 import { cn } from '@/lib/utils'
+import { IAuthFormData } from '@/services/auth/auth.types'
 
 interface LoginInputProps {
-    labelValue: Path<IData>
+    labelValue: Path<IAuthFormData>
     labelText?: string
-    register: UseFormRegister<IData>
-    registerOptions?: RegisterOptions<IData>
-    errors: FieldErrors<IData>
+    register: UseFormRegister<IAuthFormData>
+    registerOptions?: RegisterOptions<IAuthFormData>
+    errors: FieldErrors<IAuthFormData>
     classes?: {
         wrapper?: string
         labelValue?: string

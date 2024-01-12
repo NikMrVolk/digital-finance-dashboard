@@ -9,7 +9,9 @@ export interface IAuthResponse {
     user: IUser
 }
 
-export interface IFormData {
+export interface IAuthFormData {
     email: string
+    name?: string
     password: string
+    confirmedPassword?: string
 }

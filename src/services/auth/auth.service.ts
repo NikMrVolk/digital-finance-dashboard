@@ -1,5 +1,5 @@
 import { removeFromStorage, saveTokenStorage } from './auth.helper'
-import { IAuthResponse, IFormData, IUser } from './auth.types'
+import { IAuthResponse, IAuthFormData, IUser } from './auth.types'
 
 import { axiosClassic, instance } from '@/api/axios'
 
@@ -9,7 +9,7 @@ export enum EnumTokens {
 }
 
 export const authService = {
-    async main(type: 'login' | 'register', data: IFormData) {
+    async main(type: 'login' | 'registration', data: IAuthFormData) {
         const response = await axiosClassic.post<IAuthResponse>(`/auth/${type}`, data)
 
         if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
