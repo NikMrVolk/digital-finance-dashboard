@@ -1,7 +1,6 @@
 'use client'
 
-import { useMutation } from '@tanstack/react-query'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import DashboardCard from '../UI/DashboardCard'
@@ -11,22 +10,12 @@ import AuthInputs from './AuthInputs'
 import AuthSwitchLinks from './AuthSwitchLinks'
 import ConditionElement from './ConditionElement'
 
-import { saveTokenStorage } from '@/services/auth/auth.helper'
-import { authService } from '@/services/auth/auth.service'
+import { useAuth } from '@/hooks/useAuth'
 import { IAuthFormData } from '@/services/auth/auth.types'
-import { QueryKeys } from '@/utils/constants'
-import { LOGIN_ROUTE, PROGRESS_ROUTE } from '@/utils/routs/routs'
-
-export interface IData {
-    email: string
-    name?: string
-    password: string
-    confirmedPassword?: string
-}
+import { LOGIN_ROUTE } from '@/utils/routs/routs'
 
 export default function AuthForm() {
     const pathname = usePathname()
-    const { push } = useRouter()
     const {
         register,
         handleSubmit,
@@ -37,30 +26,11 @@ export default function AuthForm() {
 
     const isLogin = pathname === LOGIN_ROUTE
 
-    const { mutate: mutateRegistration, isPending: isRegistrationPending } = useMutation({
-        mutationKey: [QueryKeys.REGISTRATION],
-        mutationFn: (data: IAuthFormData) => authService.main('registration', data),
-        onSuccess({ data }) {
-            saveTokenStorage(data.accessToken)
-            reset()
-            push(PROGRESS_ROUTE)
-        },
-    })
-
-    const { mutate: mutateLogin, isPending: isLoginPending } = useMutation({
-        mutationKey: [QueryKeys.LOGIN],
-        mutationFn: (data: IAuthFormData) => authService.main('login', data),
-        onSuccess({ data }) {
-            saveTokenStorage(data.accessToken)
-            reset()
-            push(PROGRESS_ROUTE)
-        },
-    })
-
-    const isPending = isRegistrationPending || isLoginPending
+    const { login, registration, isPending, isSuccess } = useAuth()
 
     const onSubmit: SubmitHandler<IAuthFormData> = data => {
-        isLogin ? mutateLogin(data) : mutateRegistration(data)
+        isLogin ? login(data) : registration(data)
+        if (isSuccess) reset()
     }
 
     return (
@@ -70,7 +40,7 @@ export default function AuthForm() {
                     Sign <ConditionElement condition={isLogin} ifTrue="in" ifFalse="up" />
                 </h2>
                 <AuthInputs register={register} errors={errors} isLogin={isLogin} watch={watch} />
-                <StatisticButton className="rounded-2xl" type="submit" disabled={isPending}>
+                <StatisticButton className="rounded-2xl" type="submit" disabled={!!isPending}>
                     Continue
                 </StatisticButton>
                 <AuthSwitchLinks isLogin={isLogin} />
