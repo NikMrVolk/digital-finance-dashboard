@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { cn } from '@/lib/utils'
 
 export interface StatisticButtonProps {
@@ -17,7 +19,7 @@ const colors = {
         'border-gray-600 text-gray-600 hover:border-gray-600 hover:text-gray-600 active:border-gray-600 active:text-gray-600',
 }
 
-export default function StatisticButton({
+export default memo(function StatisticButton({
     children,
     className,
     onClick,
@@ -40,4 +42,4 @@ export default function StatisticButton({
             {children}
         </button>
     )
-}
+})

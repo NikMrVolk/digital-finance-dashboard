@@ -1,8 +1,10 @@
+import { memo } from 'react'
+
 import Link from 'next/link'
 
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '@/utils/routs/routs'
 
-export default function AuthSwitchLinks({ isLogin }: { isLogin: boolean }) {
+export default memo(function AuthSwitchLinks({ isLogin }: { isLogin: boolean }) {
     return (
         <div className="-mt-3 flex items-center justify-center gap-2">
             {isLogin ? <>Don&apos;t have an account yet?</> : 'Already have an account?'}
@@ -14,4 +16,4 @@ export default function AuthSwitchLinks({ isLogin }: { isLogin: boolean }) {
             </Link>
         </div>
     )
-}
+})

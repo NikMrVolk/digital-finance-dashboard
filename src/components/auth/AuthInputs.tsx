@@ -2,8 +2,9 @@ import { FieldErrors, UseFormRegister, UseFormWatch } from 'react-hook-form'
 
 import LoginInputWithOptions from '../UI/LoginInputWithOptions'
 
-import { IAuthFormData } from '@/services/auth/auth.types'
 import ConditionElement from './ConditionElement'
+
+import { IAuthFormData } from '@/services/auth/auth.types'
 
 interface AuthInputsProps {
     register: UseFormRegister<IAuthFormData>

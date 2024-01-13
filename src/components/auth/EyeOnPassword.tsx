@@ -1,5 +1,7 @@
 'use client'
 
+import { memo } from 'react'
+
 import { Eye, EyeOff } from 'lucide-react'
 
 interface EyeOnPasswordProps {
@@ -8,7 +10,7 @@ interface EyeOnPasswordProps {
     setIsShowPassword: (v: boolean) => void
 }
 
-export default function EyeOnPassword({
+export default memo(function EyeOnPassword({
     condition,
     isShowPassword,
     setIsShowPassword,
@@ -27,4 +29,4 @@ export default function EyeOnPassword({
             )}
         </span>
     )
-}
+})
