@@ -1,3 +1,5 @@
+'use client'
+
 import {
     ActivitySquare,
     Component,
@@ -9,12 +11,12 @@ import {
     Wallet2,
 } from 'lucide-react'
 
-import ClickLogOutWrapper from '../common/wrappers/ClickLogOutWrapper'
 import LogoLink from '../logo/LogoLink'
 
 import AsideItem from './AsideItem'
 import AsideLink from './AsideLink'
 
+import { useLogOut } from '@/hooks/auth/useLogOut'
 import { asideItems } from '@/mock/progressItems'
 import {
     INSIDES_ROUTE,
@@ -26,6 +28,8 @@ import {
 } from '@/utils/routs/routs'
 
 export default function Aside() {
+    const { logOut } = useLogOut()
+
     return (
         <aside
             className="sticky top-0 z-1 flex h-screen w-30 flex-col items-center justify-between 
@@ -70,12 +74,14 @@ export default function Aside() {
                     <Plus className="h-6 w-6 opacity-60 tall:h-8 tall:w-8" />
                 </AsideItem>
             </ul>
-            <div>
-                <ClickLogOutWrapper>
-                    <AsideItem>
-                        <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />
-                    </AsideItem>
-                </ClickLogOutWrapper>
+            <div
+                onClick={() => {
+                    logOut()
+                }}
+            >
+                <AsideItem>
+                    <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />
+                </AsideItem>
             </div>
         </aside>
     )

@@ -32,7 +32,7 @@ export const useAuth = () => {
         mutationFn: (data: IAuthFormData) => authService.main('login', data),
         onSuccess({ data }) {
             saveTokenStorage(data.accessToken)
-            push(PROGRESS_ROUTE)
+            // push(PROGRESS_ROUTE)
         },
     })
 

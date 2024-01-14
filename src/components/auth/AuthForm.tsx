@@ -8,7 +8,7 @@ import StatisticButton from '../UI/StatisticButton'
 import AuthInputs from './AuthInputs'
 import AuthSwitchLinks from './AuthSwitchLinks'
 
-import { useAuth } from '@/hooks/useAuth'
+import { useAuth } from '@/hooks/auth/useAuth'
 import { useLoginRoute } from '@/hooks/useLoginRoute'
 import { IAuthFormData } from '@/services/auth/auth.types'
 
