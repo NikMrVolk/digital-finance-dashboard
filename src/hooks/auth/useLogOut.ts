@@ -8,7 +8,7 @@ import { LOGIN_ROUTE } from '@/utils/routs/routs'
 export const useLogOut = () => {
     const { push } = useRouter()
 
-    const { mutate: logOut, isPending: logOutPending } = useMutation({
+    const { mutate: logOut, isPending } = useMutation({
         mutationKey: [QueryKeys.LOG_OUT],
         mutationFn: () => authService.logout(),
         onSuccess() {
@@ -18,6 +18,6 @@ export const useLogOut = () => {
 
     return {
         logOut,
-        logOutPending,
+        isPending,
     }
 }

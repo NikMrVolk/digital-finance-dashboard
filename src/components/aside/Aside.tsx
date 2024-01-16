@@ -26,9 +26,10 @@ import {
     PROGRESS_ROUTE,
     WALLET_ROUTE,
 } from '@/utils/routs/routs'
+import { ClipLoader } from 'react-spinners'
 
 export default function Aside() {
-    const { logOut } = useLogOut()
+    const { logOut, isPending } = useLogOut()
 
     return (
         <aside
@@ -80,7 +81,8 @@ export default function Aside() {
                 }}
             >
                 <AsideItem>
-                    <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />
+                    {!isPending && <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />}
+                    <ClipLoader color="#7c807e" size={20} loading={isPending} />
                 </AsideItem>
             </div>
         </aside>
