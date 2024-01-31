@@ -9,7 +9,7 @@ export default function DashboardCard({ children, className }: DashboardCardProp
     return (
         <section
             className={cn(
-                'relative z-1 rounded-lg border border-stone-900 bg-black px-8 py-5',
+                'relative z-1 rounded-lg border border-stone-700 bg-black px-8 py-5',
                 className,
             )}
             data-aos="fade-in-zoom"
