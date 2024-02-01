@@ -1,9 +1,6 @@
-'use client'
-
 import {
     ActivitySquare,
     Component,
-    LogOut,
     MessageCircleMore,
     PieChart,
     Plus,
@@ -13,10 +10,10 @@ import {
 
 import LogoLink from '../logo/LogoLink'
 
+import AsideExit from './AsideExit'
 import AsideItem from './AsideItem'
 import AsideLink from './AsideLink'
 
-import { useLogOut } from '@/hooks/auth/useLogOut'
 import { asideItems } from '@/mock/progressItems'
 import {
     INSIDES_ROUTE,
@@ -26,11 +23,8 @@ import {
     PROGRESS_ROUTE,
     WALLET_ROUTE,
 } from '@/utils/routs/routs'
-import { ClipLoader } from 'react-spinners'
 
 export default function Aside() {
-    const { logOut, isPending } = useLogOut()
-
     return (
         <aside
             className="sticky top-0 z-1 flex h-screen w-30 flex-col items-center justify-between 
@@ -75,16 +69,7 @@ export default function Aside() {
                     <Plus className="h-6 w-6 opacity-60 tall:h-8 tall:w-8" />
                 </AsideItem>
             </ul>
-            <div
-                onClick={() => {
-                    logOut()
-                }}
-            >
-                <AsideItem>
-                    {!isPending && <LogOut className="h-4 w-4 opacity-60 tall:h-6 tall:w-6" />}
-                    <ClipLoader color="#7c807e" size={20} loading={isPending} />
-                </AsideItem>
-            </div>
+            <AsideExit />
         </aside>
     )
 }
