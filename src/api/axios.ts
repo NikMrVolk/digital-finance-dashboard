@@ -5,10 +5,9 @@ import { errorCatch, getContentType } from './api.helpers'
 
 import { getAccessToken, removeFromStorage } from '@/services/auth/auth.helper'
 import { authService } from '@/services/auth/auth.service'
-import { API_URL } from '@/utils/constants'
 
 const axiosOptions: CreateAxiosDefaults = {
-    baseURL: API_URL,
+    baseURL: process.env.NEXT_PUBLIC_API_URL,
     headers: getContentType(),
     withCredentials: true,
 }
