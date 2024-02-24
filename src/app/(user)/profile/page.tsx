@@ -1,3 +1,5 @@
+import ProfilePage from '@/pages/user/ProfilePage'
+
 export default function Profile() {
-    return <div className="h-full" />
+    return <ProfilePage />
 }

@@ -25,6 +25,7 @@ const config: Config = {
                 1: '1',
             },
             spacing: {
+                18: '4.25rem', // 68px
                 30: '7.5rem', // 120px
                 '23vh': '23vh',
             },
