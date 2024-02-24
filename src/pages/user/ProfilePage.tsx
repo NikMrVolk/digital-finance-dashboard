@@ -1,7 +1,10 @@
-import { Camera, Copy, User } from 'lucide-react'
+import { Camera, User } from 'lucide-react'
 
+import CopyButton from '@/components/common/CopyButton'
 import BlockWrapper from '@/components/common/wrappers/BlockWrapper'
 import DashboardCard from '@/components/UI/DashboardCard'
+
+const mockId = '4272834'
 
 export default function ProfilePage() {
     return (
@@ -16,9 +19,7 @@ export default function ProfilePage() {
                     </div>
                     <div className="flex flex-col justify-between">
                         <div className="text-3xl">nick</div>
-                        <div className="flex cursor-pointer gap-2 duration-300 hover:text-red-500">
-                            <Copy /> <p>id</p>
-                        </div>
+                        <CopyButton valueToCopy={mockId}>{`id ${mockId}`}</CopyButton>
                     </div>
                 </div>
             </DashboardCard>
