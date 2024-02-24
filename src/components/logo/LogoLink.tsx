@@ -15,7 +15,7 @@ export default function LogoLink() {
                 <Circle
                     color="rgb(255, 0, 50)"
                     className={`h-8 w-8 tall:h-10 tall:w-10 ${
-                        pathname !== '/' ? 'opacity-80 hover:opacity-90 active:opacity-100' : ''
+                        pathname !== MAIN_ROUTE ? 'opacity-80 hover:opacity-90 active:opacity-100' : ''
                     }`}
                 />
             </Link>
